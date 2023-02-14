@@ -38,7 +38,7 @@ const Navbar = () => {
   const { isOpen, onClose, onOpen } = useDisclosure();
   const { colorMode, toggleColorMode } = useColorMode();
   return (
-    <Box bg={useColorModeValue("gray.100", "gray.900")} px={4}>
+    <Box bg={useColorModeValue("gray.100", "gray.900")} px={4} py={5}>
       <Flex h={6} alignItems="center" justifyContent="space-between">
         <IconButton
           size="md"
@@ -46,7 +46,7 @@ const Navbar = () => {
           display={{ md: "none" }}
           onClick={isOpen ? onClose : onOpen}
         />
-        <HStack>
+        <HStack as="nav" spacing={4} display={{ base: "none", md: "flex" }}>
           <Link as={ReactLink} to="/">
             <Flex alignItems="center">
               <Icon as={GiTechnoHeart} h={6} w={5} color="orange.400" />
@@ -71,7 +71,7 @@ const Navbar = () => {
           </NavLink>
           <Button
             as={ReactLink}
-            path="/login"
+            to="/login"
             p={2}
             fontSize="sm"
             fontWeight={400}
@@ -81,7 +81,8 @@ const Navbar = () => {
           </Button>
           <Button
             as={ReactLink}
-            to="registration"
+            to="/registration"
+            display={{ base: "none", md: "inline-flex" }}
             p={2}
             fontSize="sm"
             fontWeight={600}
@@ -101,6 +102,9 @@ const Navbar = () => {
                 {link.linkName}
               </NavLink>
             ))}
+            <NavLink key="sign up" path="registration">
+              Sign Up
+            </NavLink>
           </Stack>
         </Box>
       ) : null}
