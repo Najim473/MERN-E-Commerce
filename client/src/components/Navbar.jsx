@@ -47,10 +47,12 @@ const Navbar = () => {
           onClick={isOpen ? onClose : onOpen}
         />
         <HStack as="nav" spacing={4} display={{ base: "none", md: "flex" }}>
-          <Link as={ReactLink} to="/">
+          <Link as={ReactLink} to="/" _hover={{ textDecoration: "none" }}>
             <Flex alignItems="center">
               <Icon as={GiTechnoHeart} h={6} w={5} color="orange.400" />
-              <Text fontWeight="extrabold">Tech Lines</Text>
+              <Text ml={3} fontWeight="extrabold">
+                Tech Lines
+              </Text>
             </Flex>
           </Link>
           <HStack>
