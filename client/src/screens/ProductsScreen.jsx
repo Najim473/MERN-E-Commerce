@@ -1,4 +1,5 @@
 import { Center, Wrap, WrapItem } from "@chakra-ui/react";
+import ProductCard from "../components/ProductCard";
 import { products } from "../products";
 const ProductsScreen = () => {
   return (
@@ -6,7 +7,7 @@ const ProductsScreen = () => {
       {products.map((product) => (
         <WrapItem key={product.id}>
           <Center w="250px" h="550px">
-            {product.name}
+            <ProductCard product={product} />
           </Center>
         </WrapItem>
       ))}
