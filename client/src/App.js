@@ -1,7 +1,17 @@
-import './App.css';
+import { ChakraProvider } from "@chakra-ui/react";
+// import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router } from "react-router-dom";
+import "./App.css";
+import Navbar from "./components/Navbar";
 function App() {
   return (
-    <h1>Techline</h1>
+    <ChakraProvider>
+      <Router>
+        <Navbar>
+          <main></main>
+        </Navbar>
+      </Router>
+    </ChakraProvider>
   );
 }
 
