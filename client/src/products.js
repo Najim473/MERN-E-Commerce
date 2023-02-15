@@ -1,6 +1,6 @@
 export const products = [
     {
-        id: 1,
+        _id: "636985e59540445b3c45e6af",
         name: "iPhone 11 Pro 256GB Memory",
         image: "/images/iphone.jpg",
         description:
@@ -15,7 +15,7 @@ export const products = [
         stock: 5,
     },
     {
-        id: 2,
+        _id: "6369860d9540445b3c45e6b1",
         name: "Samsung Galaxy Tab S6",
         image: "/images/tab.jpg",
         description:
@@ -26,12 +26,12 @@ export const products = [
         countInStock: 11,
         rating: 5,
         numReviews: 0,
-        isNew: false,
+        isNew: true,
         reviews: [],
         stock: 0,
     },
     {
-        id: 3,
+        _id: "6369863c9540445b3c45e6b3",
         name: "Samsung Galaxy Watch5 Pro",
         image: "/images/s4prowatch.jpg",
         description:
@@ -46,7 +46,7 @@ export const products = [
         stock: 7,
     },
     {
-        id: 5,
+        _id: "5",
         name: "Samsung Galaxy S4 Watch",
         image: "/images/s4watch.jpg",
         description:
@@ -56,7 +56,7 @@ export const products = [
         price: 299.99,
         rating: 4,
         numReviews: 1,
-        isNew: false,
+        isNew: true,
         reviews: [],
         stock: 1,
     },
