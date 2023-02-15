@@ -18,8 +18,40 @@ import { FiShoppingCart } from "react-icons/fi";
 import { Link as ReactLink } from "react-router-dom";
 import { StarIcon } from "@chakra-ui/icons";
 import { useState } from "react";
+const Rating = ({ rating, numReviews }) => {
+  const { iconSize, setIconSize } = useState("15px");
+  return (
+    <Flex>
+      <HStack spacing="2px" mr={2}>
+        <StarIcon size={iconSize} w="10px" color="orange.500" />
+        <StarIcon
+          size={iconSize}
+          w="10px"
+          color={rating >= 2 ? "orange.500" : "gray.200"}
+        />
+        <StarIcon
+          size={iconSize}
+          w="10px"
+          color={rating >= 3 ? "orange.500" : "gray.200"}
+        />
+        <StarIcon
+          size={iconSize}
+          w="10px"
+          color={rating >= 4 ? "orange.500" : "gray.200"}
+        />
+        <StarIcon
+          size={iconSize}
+          w="10px"
+          color={rating >= 5 ? "orange.500" : "gray.200"}
+        />
+      </HStack>
+      <Text fontSize="13px" fontWeight="bold" ml="4px">
+        {`${numReviews} ${numReviews === 1 ? "Review" : "Reviews"} `}
+      </Text>
+    </Flex>
+  );
+};
 const ProductCard = ({ product }) => {
-  console.log(product.image);
   return (
     <div>
       <Stack
@@ -77,15 +109,23 @@ const ProductCard = ({ product }) => {
               pt="2"
               cursor="pointer"
             >
-              <Box fontSize="16px" fontWeight="semibold" lineHeight="tight">
+              <Box
+                fontSize="15px"
+                mt={2}
+                fontWeight="semibold"
+                lineHeight="tight"
+              >
                 {product.name}
               </Box>
             </Link>
           </Flex>
         </Box>
+        <Flex justifyContent="space-between" alignContent="center" py="6">
+          <Rating rating={product.rating} numReviews={product.numReviews} />
+        </Flex>
         <Flex justify="space-between">
           <Box
-            mt={39.5}
+            mt={-50}
             fontSize="18px"
             color={useColorModeValue("gray.800", "white")}
           >
@@ -102,7 +142,7 @@ const ProductCard = ({ product }) => {
             fontSize="12px"
           >
             <Button
-              mt={33}
+              mt={-14}
               variant="ghost"
               display="flex"
               disabled={product.stock <= 0}
