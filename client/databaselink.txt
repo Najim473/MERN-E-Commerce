@@ -1,0 +1,1 @@
+mongodb+srv://finemenbd:<password>@databse.8ig2q9u.mongodb.net/?retryWrites=true&w=majority
