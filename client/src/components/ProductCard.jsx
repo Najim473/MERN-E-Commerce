@@ -8,7 +8,6 @@ import {
   useColorModeValue,
   Icon,
   Button,
-  Tooltips,
   Stack,
   Link,
   HStack,
@@ -19,6 +18,7 @@ import { Link as ReactLink } from "react-router-dom";
 import { StarIcon } from "@chakra-ui/icons";
 import { useState } from "react";
 const Rating = ({ rating, numReviews }) => {
+  // eslint-disable-next-line
   const { iconSize, setIconSize } = useState("15px");
   return (
     <Flex>

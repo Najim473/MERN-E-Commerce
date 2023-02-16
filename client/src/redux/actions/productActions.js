@@ -1,10 +1,10 @@
 import axios from "axios";
-import { setProducts, setLoading, setError } from "../slices/products.js";
-
-export const getProducts = () => async (dispatch) => {
+import { setProducts, setLoading, setError } from "../slices/products";
+export const getProducts = (id) => async (dispatch) => {
     dispatch(setLoading(true));
     try {
         const { data } = await axios.get("/api/products");
+        console.log(data)
         dispatch(setProducts(data));
     } catch (error) {
         dispatch(
