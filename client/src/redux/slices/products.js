@@ -17,11 +17,11 @@ export const productsSlice = createSlice({
             state.error = null;
             state.products = payload;
         },
-        setProduct: (state, { payload }) => {
-            state.loading = false;
-            state.error = null;
-            state.products = payload;
-        },
+        // setProduct: (state, { payload }) => {
+        //     state.loading = false;
+        //     state.error = null;
+        //     state.products = payload;
+        // },
         setError: (state, { payload }) => {
             state.error = payload;
             state.loading = false;

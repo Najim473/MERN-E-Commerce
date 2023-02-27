@@ -6,8 +6,9 @@ import { useEffect } from "react";
 const ProductsScreen = () => {
   const dispatch = useDispatch();
   const productList = useSelector((state) => state.products);
+  // eslint-disable-next-line
   const { loading, error, products } = productList;
-  console.log("productScreen");
+
   useEffect(() => {
     dispatch(getProducts());
   }, [dispatch]);
@@ -15,7 +16,7 @@ const ProductsScreen = () => {
   return (
     <Wrap spacing="30px" justify="center" minHe="100vh">
       {products.map((product) => (
-        <WrapItem key={product.id}>
+        <WrapItem key={product._id}>
           <Center w="250px" h="550px">
             <ProductCard product={product} />
           </Center>

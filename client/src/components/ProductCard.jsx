@@ -17,6 +17,7 @@ import { FiShoppingCart } from "react-icons/fi";
 import { Link as ReactLink } from "react-router-dom";
 import { StarIcon } from "@chakra-ui/icons";
 import { useState } from "react";
+
 const Rating = ({ rating, numReviews }) => {
   // eslint-disable-next-line
   const { iconSize, setIconSize } = useState("15px");
@@ -52,6 +53,9 @@ const Rating = ({ rating, numReviews }) => {
   );
 };
 const ProductCard = ({ product }) => {
+  let price = Number(product.price);
+  let productPrice = price.toFixed(2);
+
   return (
     <div>
       <Stack
@@ -65,7 +69,7 @@ const ProductCard = ({ product }) => {
         shadow="lg"
         position="relative"
       >
-        {product.isNew && (
+        {product.productIsNew && (
           <Circle
             size="10px"
             position="absolute"
@@ -85,7 +89,7 @@ const ProductCard = ({ product }) => {
         )}
         <Image mt={6} src={product.image} alt={product.name} roundTop="lg" />
         <Box flex="1" maxH="5" alignItems="baseline">
-          {product.isNew && (
+          {product.productIsNew && (
             <Badge
               rounded="full"
               px="2"
@@ -121,7 +125,10 @@ const ProductCard = ({ product }) => {
           </Flex>
         </Box>
         <Flex justifyContent="space-between" alignContent="center" py="6">
-          <Rating rating={product.rating} numReviews={product.numReviews} />
+          <Rating
+            rating={product.rating}
+            numReviews={product.numberOfReviews}
+          />
         </Flex>
         <Flex justify="space-between">
           <Box
@@ -132,7 +139,7 @@ const ProductCard = ({ product }) => {
             <Box as="span" color={"gray.600"} fontSize="18px">
               $
             </Box>
-            {product.price.toFixed(2)}
+            {productPrice}
           </Box>
           <Tooltip
             label="Add to card"
