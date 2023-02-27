@@ -1,4 +1,14 @@
-import { Center, Wrap, WrapItem, Spinner, Stack } from "@chakra-ui/react";
+import {
+  Center,
+  Wrap,
+  WrapItem,
+  Spinner,
+  Stack,
+  Alert,
+  AlertIcon,
+  AlertTitle,
+  AlertDescription,
+} from "@chakra-ui/react";
 import ProductCard from "../components/ProductCard";
 import { useDispatch, useSelector } from "react-redux";
 import { getProducts } from "../redux/actions/productActions.js";
@@ -27,7 +37,11 @@ const ProductsScreen = () => {
           />
         </Stack>
       ) : error ? (
-        <p>Error</p>
+        <Alert status="error">
+          <AlertIcon />
+          <AlertTitle>We are sorry</AlertTitle>
+          <AlertDescription>{error}</AlertDescription>
+        </Alert>
       ) : (
         products.map((product) => (
           <WrapItem key={product._id}>
