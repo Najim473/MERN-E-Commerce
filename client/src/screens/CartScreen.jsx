@@ -11,10 +11,15 @@ import {
   AlertDescription,
   AlertIcon,
   Wrap,
-  useColorModeValue,
+  useColorModeValue as mode,
 } from "@chakra-ui/react";
 import { Link as ReactLink } from "react-router-dom";
+import { useSelector } from "react-redux";
 const CartScreen = () => {
+  const cartInfo = useSelector((state) => state.cart);
+  const { loading, error, cart } = cartInfo;
+  const getHeadingContent = () =>
+    cart.length === 1 ? "(1 Item)" : `${cart.length} Items`;
   return (
     <Wrap spacing="30px" justify="center" minHe="100vh">
       {loading ? (
@@ -58,7 +63,7 @@ const CartScreen = () => {
           >
             <Stack spacing={{ base: "8", md: "10" }} flex="2">
               <Heading fontSize="2xl" fontWeight="extrabold">
-                Shopping Cart
+                Shopping Cart {getHeadingContent}
               </Heading>
               <Stack spacing="6">{/* CartItem  */}</Stack>
             </Stack>
@@ -69,7 +74,7 @@ const CartScreen = () => {
                 <Link
                   as={ReactLink}
                   to="/products"
-                  color={useColorModeValue("orange.500", "orange.200")}
+                  color={mode("orange.500", "orange.200")}
                 >
                   Continue Shopping
                 </Link>
