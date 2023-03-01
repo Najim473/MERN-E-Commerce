@@ -37,6 +37,30 @@ const CartItem = ({ CartItem }) => {
           </Stack>
         </Box>
       </Stack>
+      <Flex
+        width="full"
+        mt={{ base: "4", md: "0" }}
+        align={{ base: "center", md: "baseline" }}
+        justify="space-between"
+        display="flex"
+      >
+        <Select
+          maxW="64px"
+          focusBorderColor={mode("orange:500", "orange.200")}
+          value={qty}
+          onChange={(e) => {
+            dispatch(addCartItem(id, e.target.value));
+          }}
+        >
+          {[...Array(stock).keys()].map((x) => {
+            <option key={x + 1} value={x + 1}>
+              {x + 1}
+            </option>;
+          })}
+        </Select>
+        <Text fontWeight="bold">${price}</Text>
+        <CloseButton />
+      </Flex>
     </Flex>
   );
 };
